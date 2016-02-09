@@ -15,6 +15,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/adding-items', function () {
+    return view('form');
+});
+
+Route::post('/adding-items', [
+    'as' => 'adding-items',
+    'uses' => 'ItemsController@addItem'
+]);
+
+
+/* Uploading */
+Route::get('items-to-xml', [
+    'as' => 'items-to-xml',
+    'uses' => 'ItemsController@itemsToXml'
+]);
+
+
+Route::get('items-to-json', [
+    'as' => 'items-to-json',
+    'uses' => 'ItemsController@itemsToJson'
+]);
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
